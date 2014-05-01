@@ -78,6 +78,7 @@ public class Methods {
 		for (int i = 0; i < Field.GetLineSize() - WIN_LENGHT; i++){
 			for (int j = 0; j < Field.GetLineSize(); j++){
 				gameField.SetField('X',i,j);
+		
 			}
 		}
 	}  
@@ -103,7 +104,7 @@ public class Methods {
 				return true;
 			}
 		}
-		//dfdfdfdf
+		
 		
 		return false;
 	}

@@ -1,6 +1,6 @@
 package com.Main;
 
-import com.common.Field;
+import com.common.*;
 import com.examples.*;
 
 public class Main {
@@ -37,13 +37,13 @@ public class Main {
 			
 			
 		//}
-		//Methods.SeekRightDiag(gameField.GetField(), gameField);
+		Methods.SeekRightDiag(gameField.GetField(), gameField);
 		gameField.ViewField();
 		//int key = Methods.InputInt();
 		//gameField.FindCell(key);
 //		
 //		gameField.FieldView();
-
+//
 		
 		
 		
