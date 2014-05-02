@@ -110,22 +110,19 @@ public class Field {
 	}
 	
 	private static boolean seekDiagRight(char field[][]){
-		int counterRight = 0;
+		int counter = 0;
 		
-		for(int i = 0; i < LINE_SIZE - 1; i++){
-			if ((field[LINE_SIZE - 1 - i][LINE_SIZE - 1 - i] == field [LINE_SIZE - 2 - i][LINE_SIZE - 2 - i]) && (field [LINE_SIZE - 2 - i][LINE_SIZE - 2 - i] != ' ') ){
-				counterRight++;
-			} else {
-				counterRight = 0;
+		for(int i = 0; i< LINE_SIZE - 1; i++){
+			if ((field[i][LINE_SIZE - 1 - i] == field[i+1][LINE_SIZE - 2 - i]) && (field[i][LINE_SIZE - 1 - i]) != ' '){
+				counter++;
+			} else{
+				counter = 0;
 			}
 		}
-		
-		if (counterRight == WIN_LENGHT) {
+		if (counter == WIN_LENGHT){
 			return true;
-		} else {
-			return false;
 		}
-		
+		return false;
 	}
 	
 	private static boolean seekDiagLeft(char field[][]){
@@ -164,17 +161,17 @@ public class Field {
 			{
 				return true;
 			}
-			
-			win = seekDiagRight(field);
-			if (win == true){
-				return true;
-			}
-			
+		}
+
 			win = seekDiagLeft(field); 
 			if (win == true){
 				return true;
 			}
-		}
+			
+			win = seekDiagRight(field); 
+			if (win == true){
+				return true;
+			}
 		return false;
 	}
 	
