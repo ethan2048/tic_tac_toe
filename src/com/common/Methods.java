@@ -8,7 +8,7 @@ public class Methods {
 	
 	private static final int WIN_LENGHT = 2; //количество совпадений - 1
 	
-	public static int InputInt(){
+	public static int inputInt(){
 		System.out.print("Input number: ");
 		Scanner sc = new Scanner (System.in);
 		int number = sc.nextInt();
@@ -16,7 +16,7 @@ public class Methods {
 		return number;
 	}
 	
-	public static char InputChar(){
+	public static char inputChar(){
 		System.out.print("Input char: ");
 		Scanner sc = new Scanner (System.in);
 		char character = sc.next().charAt(0);
@@ -24,7 +24,7 @@ public class Methods {
 		
 	}
 	
-	public static char Alternation(int counter){
+	public static char choise(int counter){
 		char sign;
 		if (counter % 2 == 0) {
 			sign = 'X';
@@ -34,9 +34,9 @@ public class Methods {
 		return sign;
 	}
 	
-	private static boolean SeekLine(char field[][], int i){ //закрыть потом нахуй
+	private static boolean seekLine(char field[][], int i){ //закрыть потом нахуй
 		int counter = 0;
-		for (int j = 0; j < Field.GetLineSize() - 1; j++)
+		for (int j = 0; j < Field.getLineSize() - 1; j++)
 		{
 			if (counter == WIN_LENGHT) {
 				return true;
@@ -54,9 +54,9 @@ public class Methods {
 		}
 	}
 	
-	private static boolean SeekColumn(char field[][], int j){
+	private static boolean seekColumn(char field[][], int j){
 		int counter = 0;
-		for (int i = 0; i < Field.GetLineSize() - 1; i++)
+		for (int i = 0; i < Field.getLineSize() - 1; i++)
 		{
 			if (counter == WIN_LENGHT) {
 				return true;
@@ -74,45 +74,45 @@ public class Methods {
 		}
 	}
 	
-	public static void SeekRightDiag(char field[][], Field gameField){
-		for (int j = 0; j < Field.GetLineSize() - WIN_LENGHT; j++)
-		PlaceHorizontalUp(j, gameField, "down");
+	public static void seekRightDiag(char field[][], Field gameField){
+		for (int j = 0; j < Field.getLineSize() - WIN_LENGHT; j++)
+		placeHorizontalUp(j, gameField, "down");
 	}
 	  
 	
-	public static void PlaceHorizontalUp(int j, Field gameField, String place){
+	public static void placeHorizontalUp(int j, Field gameField, String place){ //Абсолютно адовый быдлокод
 		if (place == "up"){		
-			for (int i = 0; i < Field.GetLineSize() - WIN_LENGHT; i++){
+			for (int i = 0; i < Field.getLineSize() - WIN_LENGHT; i++){
 				System.out.println("Hu");
-				for (; j < Field.GetLineSize(); j++, i++){
-					gameField.SetField('X',i,j);
+				for (; j < Field.getLineSize(); j++, i++){
+					gameField.setField('X',i,j);
 				}
 			}
 		} else {
-				for (; j < Field.GetLineSize() - 1; j++){
+				for (; j < Field.getLineSize() - 1; j++){
 					System.out.println("Hu");
-					for (int i = 0; i < Field.GetLineSize() - 2; j++, i++){
-						gameField.SetField('X',j,i);
+					for (int i = 0; i < Field.getLineSize() - 2; j++, i++){
+						gameField.setField('X',j,i);
 					}
 				}
 			}
 		}
 	
 	
-	public static boolean Rule(char[][] field){
+	public static boolean rule(char[][] field){
 		boolean win = false;
 		
-		for(int j = 0; j < Field.GetLineSize(); j++)
+		for(int j = 0; j < Field.getLineSize(); j++)
 		{
-			win = Methods.SeekLine(field, j);
+			win = Methods.seekLine(field, j);
 			if (win == true)
 			{
 				return true;
 			}
 		}
-		for(int i = 0; i < Field.GetLineSize(); i++)
+		for(int i = 0; i < Field.getLineSize(); i++)
 		{
-			win = Methods.SeekColumn(field, i);
+			win = Methods.seekColumn(field, i);
 			if (win == true)
 			{
 				return true;

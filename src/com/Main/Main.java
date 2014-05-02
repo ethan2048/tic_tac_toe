@@ -9,7 +9,7 @@ public class Main {
 				
 		//отрисовка пол€
 		Field gameField = new Field();
-		gameField.MakeField();
+		gameField.makeField();
 		
 		//Ќачало игрового цикла
 //		for (int counter = 0; counter < Field.GetFieldSize(); counter++){
@@ -37,8 +37,8 @@ public class Main {
 			
 			
 		//}
-		Methods.SeekRightDiag(gameField.GetField(), gameField);
-		gameField.ViewField();
+		Methods.seekRightDiag(gameField.getField(), gameField);
+		gameField.riewField();
 		//int key = Methods.InputInt();
 		//gameField.FindCell(key);
 //		
