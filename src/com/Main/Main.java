@@ -30,11 +30,11 @@ public class Main {
 				}
 				
 			}
-			for (int i=0; i<Field.getLineSize(); i++){
+			//for (int i=0; i<Field.getLineSize(); i++){
 				if (Field.rule(gameField.getField()) == true) {
 					System.out.println(Methods.choise(counter) + " win!");
 					break;
-				}
+				//}
 			}
 		}
 		gameField.viewField();
