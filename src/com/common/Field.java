@@ -2,7 +2,7 @@ package com.common;
 
 public class Field {
 
-	private static final int LINE_SIZE = 5;
+	private static final int LINE_SIZE = 3;
 	private static final char DEFAULT_CELL = ' ';
 	private static final int FIELD_SIZE = LINE_SIZE * LINE_SIZE;
 	
