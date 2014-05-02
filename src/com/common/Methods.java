@@ -1,8 +1,6 @@
 package com.common;
 
 import java.util.Scanner;
-import com.common.Field;
-
 
 public class Methods {
 	

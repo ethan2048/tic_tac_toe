@@ -1,7 +1,6 @@
 package com.Main;
 
 import com.common.*;
-import com.examples.*;
 
 public class Main {
 
@@ -31,8 +30,18 @@ public class Main {
 				}
 				
 			}
+			for (int i=0; i<Field.getLineSize(); i++){
+				if (Field.rule(gameField.getField()) == true) {
+					System.out.println(Methods.choise(counter) + " win!");
+				}
+			}
 		}
 		gameField.viewField();
+		
+		
+		// проверочное условие (правило)
+		
+
 		//int key = Methods.InputInt();
 		//gameField.FindCell(key);
 //		

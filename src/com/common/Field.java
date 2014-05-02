@@ -87,30 +87,20 @@ public class Field {
 		}
 	}
 	
-	private static boolean seekLineColumn(char field[][], int j, String direction){
-		int counter = 0, k = 0, g = 0;
+	private static boolean seekColumn(char field[][], int j){ //закрыть потом
+		int counter = 0;
 		
-		if (direction == "string") {
-			k = 1;
-		}	
-		if  (direction == "column"){ 
-			g = 1;
-		} else {
-			System.out.println("Error in string");
-			return false;
-		}
-		
-			for (int i = 0; i < Field.getLineSize() - 1; i++)
-			{
+		for (int i = 0; i < LINE_SIZE - 1; i++){
 				if (counter == WIN_LENGHT) {
-					return true;
-				}
-				if ( (field[i+k][j+g] == field[i][j]) && (field[i][j] != ' ')) {
-					counter++;
+				return true;
+			}
+			if ( (field[i+1][j] == field[i][j]) && (field[i][j] != ' ')) {
+				counter++;
 				} else {
 					counter = 0;
 				}
 			}
+		
 			if (counter == WIN_LENGHT){
 				return true;
 			} else {
@@ -119,9 +109,48 @@ public class Field {
 			
 	}
 	
+	private static boolean seekDiagRight(char field[][]){
+		int counterRight = 0;
+		
+		for(int i = 0; i < LINE_SIZE - 1; i++){
+			if ((field[LINE_SIZE - 1 - i][LINE_SIZE - 1 - i] == field [LINE_SIZE - 2 - i][LINE_SIZE - 2 - i]) && (field [LINE_SIZE - 2 - i][LINE_SIZE - 2 - i] != ' ') ){
+				counterRight++;
+			} else {
+				counterRight = 0;
+			}
+		}
+		
+		if (counterRight == WIN_LENGHT) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
+	private static boolean seekDiagLeft(char field[][]){
+		int counterLeft = 0;
+		
+		for(int i = 0; i < LINE_SIZE - 1; i++){
+			if ((field[i+1][i+1] == field [i][i]) && (field [i][i] != ' ')){
+				counterLeft++;
+			} else {
+				counterLeft = 0;
+			}
+		}
+		
+		if (counterLeft == WIN_LENGHT) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
+	
 	public static boolean rule(char[][] field){
 		boolean win = false;
-		
+			
 		for(int j = 0; j < Field.getLineSize(); j++)
 		{
 			win = seekLine(field, j);
@@ -129,19 +158,27 @@ public class Field {
 			{
 				return true;
 			}
-		}
-		for(int i = 0; i < Field.getLineSize(); i++)
-		{
-			win = seekLineColumn(field, i, "column");
+			
+			win = seekColumn(field, j);
 			if (win == true)
 			{
 				return true;
 			}
+			
+			win = seekDiagRight(field);
+			if (win == true){
+				return true;
+			}
+			
+			win = seekDiagLeft(field); 
+			if (win == true){
+				return true;
+			}
 		}
-		
-		
 		return false;
 	}
+	
+	
 	
 	
 }
