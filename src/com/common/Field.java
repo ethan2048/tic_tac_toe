@@ -28,7 +28,7 @@ public class Field {
 		field[i][j] = letter; 
 	}
 	
-	private void ñellEraser(){
+	private void cellEraser(){
 		for (int i = 0; i < LINE_SIZE; i++) {
 			for (int j = 0; j < LINE_SIZE; j++) {
 				field[i][j] = DEFAULT_CELL;
@@ -47,7 +47,7 @@ public class Field {
 	}
 	
 	public void makeField() {
-		ñellEraser();
+		cellEraser();
 		//ViewField();
 	}
 	
