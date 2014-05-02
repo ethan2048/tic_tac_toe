@@ -12,33 +12,27 @@ public class Main {
 		gameField.makeField();
 		
 		//Начало игрового цикла
-//		for (int counter = 0; counter < Field.GetFieldSize(); counter++){
-//			int masCoordinates[] = new int[2];
-//			int keyInput = Methods.InputInt();
-//			
-//			
-//			//gameField.ViewField();
-//			System.out.println("~~~~~~~~~~~~~~~~~~");
-//						
-//			for (;;) {
-//				masCoordinates = gameField.FindCell(keyInput);
-//				if (gameField.GetFieldCell(masCoordinates[0], masCoordinates[1]) == ' '){
-//					gameField.SetField(Methods.Alternation(counter), masCoordinates[0], masCoordinates[1]);
-//					gameField.ViewField();
-//					break;
-//				} else {
-//					System.out.println("This square isn't empty, enter another field code: ");
-//					keyInput = Methods.InputInt();
-//				}
-//				
-//			}
+		for (int counter = 0; counter < Field.getFieldSize(); counter++){
+			int masCoordinates[] = new int[2];
+			int keyInput = Methods.inputInt();
 			
-
-			
-			
-		//}
-		Methods.seekRightDiag(gameField.getField(), gameField);
-		gameField.riewField();
+			gameField.viewField();
+			System.out.println("~~~~~~~~~~~~~~~~~~");
+						
+			for (;;) {
+				masCoordinates = gameField.findCell(keyInput);
+				if (gameField.getFieldCell(masCoordinates[0], masCoordinates[1]) == ' '){
+					gameField.setField(Methods.choise(counter), masCoordinates[0], masCoordinates[1]);
+					gameField.viewField();
+					break;
+				} else {
+					System.out.println("This square isn't empty, enter another field code: ");
+					keyInput = Methods.inputInt();
+				}
+				
+			}
+		}
+		gameField.viewField();
 		//int key = Methods.InputInt();
 		//gameField.FindCell(key);
 //		

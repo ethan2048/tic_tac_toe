@@ -23,9 +23,8 @@ public class Rules {
 			return false;
 		}
 	}
-
 	
-	private static boolean seekColumn(char field[][], int j, String direction){
+	private static boolean seekLineColumn(char field[][], int j, String direction){
 		int counter = 0, k = 0, g = 0;
 		
 		if (direction == "string") {
@@ -62,7 +61,7 @@ public class Rules {
 		
 		for(int j = 0; j < Field.getLineSize(); j++)
 		{
-			win = Methods.seekLine(field, j);
+			win = Rules.seekLine(field, j);
 			if (win == true)
 			{
 				return true;
@@ -70,7 +69,7 @@ public class Rules {
 		}
 		for(int i = 0; i < Field.getLineSize(); i++)
 		{
-			win = Methods.seekColumn(field, i);
+			win = Rules.seekLineColumn(field, i, "column");
 			if (win == true)
 			{
 				return true;
