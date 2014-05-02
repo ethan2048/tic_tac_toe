@@ -75,28 +75,45 @@ public class Methods {
 	}
 	
 	public static void seekRightDiag(char field[][], Field gameField){
-		for (int j = 0; j < Field.getLineSize() - WIN_LENGHT; j++)
-		placeHorizontalUp(j, gameField, "down");
+		for (int i = 0; i < Field.getLineSize() - WIN_LENGHT; i++){
+			//placeHorizontalGeneral(i, gameField, "down");
+			placeHorizontalGeneral(i, gameField, "up");
+			System.out.println("Hu");
+
+		}
 	}
 	  
 	
-	public static void placeHorizontalUp(int j, Field gameField, String place){ //Абсолютно адовый быдлокод
+	public static boolean placeHorizontalGeneral(int j, Field gameField, String place){ //Абсолютно адовый быдлокод
 		if (place == "up"){		
+			int counter = 0;
 			for (int i = 0; i < Field.getLineSize() - WIN_LENGHT; i++){
 				System.out.println("Hu");
 				for (; j < Field.getLineSize(); j++, i++){
 					gameField.setField('X',i,j);
-				}
-			}
-		} else {
-				for (; j < Field.getLineSize() - 1; j++){
-					System.out.println("Hu");
-					for (int i = 0; i < Field.getLineSize() - 2; j++, i++){
-						gameField.setField('X',j,i);
+					if (gameField.getFieldCell(i, j) == gameField.getFieldCell(i++, j)) {
+						counter++;
+						if (counter == WIN_LENGHT) {
+							return true;
+						}
+					} else {
+						counter = 0;
 					}
 				}
 			}
+			return false;
+		} else {
+				for (int i = j; i < Field.getLineSize() - WIN_LENGHT;){
+					//placeHorizontalUp(j, gameField, "up");
+					//	System.out.println("Hu");
+					for (int k = 0; k < Field.getLineSize() - j; k++, i++){
+						gameField.setField('X', i, k);
+					}
+				}
 		}
+		return false;
+	}
+	
 	
 	
 	public static boolean rule(char[][] field){
