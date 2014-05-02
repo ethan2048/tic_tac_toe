@@ -75,14 +75,28 @@ public class Methods {
 	}
 	
 	public static void SeekRightDiag(char field[][], Field gameField){
-		for (int i = 0; i < Field.GetLineSize() - WIN_LENGHT; i++){
-			for (int j = 0; j < Field.GetLineSize(); j++){
-				gameField.SetField('X',i,j);
-		
+		for (int j = 0; j < Field.GetLineSize() - WIN_LENGHT; j++)
+		PlaceHorizontalUp(j, gameField, "down");
+	}
+	  
+	
+	public static void PlaceHorizontalUp(int j, Field gameField, String place){
+		if (place == "up"){		
+			for (int i = 0; i < Field.GetLineSize() - WIN_LENGHT; i++){
+				System.out.println("Hu");
+				for (; j < Field.GetLineSize(); j++, i++){
+					gameField.SetField('X',i,j);
+				}
+			}
+		} else {
+				for (; j < Field.GetLineSize() - 1; j++){
+					System.out.println("Hu");
+					for (int i = 0; i < Field.GetLineSize() - 2; j++, i++){
+						gameField.SetField('X',j,i);
+					}
+				}
 			}
 		}
-	}  
-	
 	
 	
 	public static boolean Rule(char[][] field){

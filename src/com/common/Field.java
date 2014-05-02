@@ -25,7 +25,7 @@ public class Field {
 		return field;
 	}
 	
-	public void SetField(char letter, int i, int j){
+	public void SetField(char letter, int i, int j){  //Добавить условие возможности добавления только X или O
 		field[i][j] = letter; 
 	}
 	
